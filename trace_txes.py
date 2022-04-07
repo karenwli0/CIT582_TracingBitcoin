@@ -45,9 +45,10 @@ class TXO:
                 print(output)
                 amount = int(output["value"])
                 print(amount)
-                owner = output["addresses"]
+                scriptPK = output.get("scriptPubKey")
+                owner = scriptPK["addresses"]
                 print(owner)
-        time = datetime.fromtimestamp(tx.get('blocktime'))
+        time = datetime.fromtimestamp(tx.get("blocktime"))
         ret = TXO(tx_hash, n, amount, owner, time)
         return ret
 
