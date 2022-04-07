@@ -42,12 +42,12 @@ class TXO:
         # print(vout)
         for output in vout:
             if output.get("n") == n:
-                print(output)
+                # print(output)
                 amount = int(output["value"]*100000000)
-                print(amount)
+                # print(amount)
                 scriptPK = output.get("scriptPubKey")
                 owner = scriptPK["addresses"][0]
-                print(owner)
+                # print(owner)
         time = datetime.fromtimestamp(tx.get("blocktime"))
         ret = TXO(tx_hash, n, amount, owner, time)
         return ret
