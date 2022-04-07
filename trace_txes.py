@@ -43,7 +43,7 @@ class TXO:
         for output in vout:
             if output.get("n") == n:
                 amount = int(output.get("value"))
-                owner = output.get("addresses")
+                owner = output.get("addresses")[0]
         time = datetime.fromtimestamp(tx.get("blocktime"))
         ret = TXO(tx_hash, n, amount, owner, time)
         return ret
