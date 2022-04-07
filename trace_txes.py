@@ -43,7 +43,7 @@ class TXO:
         for output in vout:
             if output.get("n") == n:
                 print(output)
-                amount = int(output["value"])
+                amount = int(output["value"]*100000000)
                 print(amount)
                 scriptPK = output.get("scriptPubKey")
                 owner = scriptPK["addresses"][0]
