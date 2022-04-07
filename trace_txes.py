@@ -44,6 +44,8 @@ class TXO:
                 amount = int(output.get("value"))
                 owner = output.get("address")
         time = datetime.fromtimestamp(tx.get("blocktime"))
+        ret = TXO(tx_hash, n, amount, owner, time)
+        return ret
 
 
     def get_inputs(self,d=1):
