@@ -39,12 +39,13 @@ class TXO:
     def from_tx_hash(cls,tx_hash,n=0):
         tx = rpc_connection.getrawtransaction(tx_hash, True)
         vout = tx.get("vout")
-        print(vout)
+        # print(vout)
         for output in vout:
             if output.get("n") == n:
-                amount = int(output.get('value'))
+                print(output)
+                amount = int(output['value'])
                 print(amount)
-                owner = output.get('addresses')
+                owner = output['addresses']
                 print(owner)
         time = datetime.fromtimestamp(tx.get('blocktime'))
         ret = TXO(tx_hash, n, amount, owner, time)
