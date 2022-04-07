@@ -42,9 +42,9 @@ class TXO:
         vout = tx.get("vout")
         for output in vout:
             if output.get("n") == n:
-                amount = int(output.get("value"))
-                owner = output.get("addresses")
-        time = datetime.fromtimestamp(tx.get("blocktime"))
+                amount = int(output.get('value'))
+                owner = output.get('addresses')
+        time = datetime.fromtimestamp(tx.get('blocktime'))
         ret = TXO(tx_hash, n, amount, owner, time)
         return ret
 
